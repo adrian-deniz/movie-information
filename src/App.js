@@ -55,7 +55,7 @@ useEffect(function () {
 
 useEffect(function () {
   if(movies.length === 0) return;
-  console.log("Complete");
+  console.log("Fetched Successfully");
 }, [movies])
 
   
