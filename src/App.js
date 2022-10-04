@@ -18,20 +18,23 @@ let App = function () {
 
   // }, [searchTerm]);
  
-console.log(movies, error, isLoading, "TEST")
+
 useEffect(function () {
   (async function() {
+    setIsLoading(true)
+    
     let [movieArray, response, responseError] = await getMovieDetailsById(idName)
-    console.log(movieArray, "Adrian De Niz", response, responseError)
+    
     if(response) {
       setMovies(movieArray);
       setError(responseError);
-      isLoading(false);
+      setIsLoading(false);
+     
     }
     else {
       setMovies(movieArray);
       setError(responseError);
-      isLoading(false);
+      setIsLoading(false);
     }
 
   }())
