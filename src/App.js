@@ -23,7 +23,7 @@ useEffect(function () {
   (async function() {
     setIsLoading(true)
     
-    let [movieArray, response, responseError] = await getMovieDetailsById(idName)
+    let [movieArray, response, responseError] = await getMovieDetailsById(idName);
     
     if(response) {
       setMovies(movieArray);
@@ -73,9 +73,12 @@ useEffect(function () {
     // </div>
 
   <div>
+
+    {isLoading && <div>...is loading</div>}
     {movies.map((movie) => {
       return (
         <MovieDetails
+          key = {movie.imdbID}
           posterUrl = {movie.Poster}
           title = {movie.Title}
           rated = {movie.Rated}
