@@ -29,7 +29,6 @@ useEffect(function () {
       setMovies(movieArray);
       setError(responseError);
       setIsLoading(false);
-     
     }
     else {
       setMovies(movieArray);
@@ -39,6 +38,25 @@ useEffect(function () {
 
   }())
 }, [idName])
+
+useEffect(function () {
+  if(isLoading) {
+    console.log("I am Loading.");
+  }
+  else {
+    console.log("I am not loading.");
+  }
+}, [isLoading])
+
+useEffect(function () {
+  if(error === null) return;
+  console.log(error);
+}, [error])
+
+useEffect(function () {
+  if(movies.length === 0) return;
+  console.log("Complete");
+}, [movies])
 
   
   return (
